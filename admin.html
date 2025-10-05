@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8" />
+<title>لوحة التحكم</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<h1>لوحة إدارة الموقع</h1>
+
+<form id="updateForm">
+  <label>اسم الموقع:</label>
+  <input type="text" id="siteName" placeholder="ادخل الاسم" /><br/><br/>
+
+  <label>نص الصفحة الرئيسية:</label>
+  <textarea id="mainText" rows="4" cols="50" placeholder="نص الموقع"></textarea><br/><br/>
+
+  <label>اختيار صورة:</label>
+  <input type="file" id="imageUpload" accept="image/*" /><br/><br/>
+
+  <label>رابط الفيديو:</label>
+  <input type="text" id="videoLink" placeholder="رابط الفيديو" /><br/><br/>
+
+  <label>لون الخلفية:</label>
+  <input type="color" id="bgColor" /><br/><br/>
+
+  <button type="button" onclick="saveChanges()">حفظ التعديلات</button>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>

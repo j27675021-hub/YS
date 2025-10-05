@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <title>مشروعي الشخصي</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* سيتم تغييره لاحقًا من الملف JSON */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="name"></h1>
+    <p id="description"></p>
+    <img id="profileImage" class="profile-image" src="" alt="Profile Image" />
+    <script>
+        // تحميل ملف settings.json
+        fetch('settings.json')
+            .then(response => response.json())
+            .then(data => {
+                // عرض البيانات على الصفحة
+                document.getElementById('name').textContent = data.name;
+                document.getElementById('description').textContent = data.description;
+
+                // تغيير لون الخلفية
+                document.body.style.backgroundColor = data.backgroundColor;
+
+                // عرض الصورة
+                document.getElementById('profileImage').src = data.profileImage;
+            })
+            .catch(error => {
+                console.error('خطأ في تحميل الملف:', error);
+            });
+    </script>
+</body>
+</html> 
+<body>
+<div id="header"></div>
+<p id="mainContent"></p>
+<iframe id="video" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+
+<script>
+  // استرجاع البيانات
+  document.getElementById('header').innerText = localStorage.getItem('siteName') || 'اسم الموقع';
+  document.getElementById('mainContent').innerText = localStorage.getItem('mainText') || 'محتوى الموقع هنا...';
+
+  // تحديث لون الخلفية
+  document.body.style.backgroundColor = localStorage.getItem('bgColor') || '#ffffff';
+
+  // تحديث الفيديو
+  const videoSrc = localStorage.getItem('videoLink') || '';
+  document.getElementById('video').src = videoSrc;
+</script>
+</body>
